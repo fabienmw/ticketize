@@ -3,7 +3,7 @@ using MediatR;
 using Ticketize.Application.Contracts.Persistence;
 using Ticketize.Domain.Entities;
 
-namespace Ticketize.Application.Features.Events.Queries
+namespace Ticketize.Application.Features.Events.Queries.GetEventDetail
 {
     public class GetEventDetailQueryHandler : IRequestHandler<GetEventDetailQuery, EventDetailVm>
     {

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using Ticketize.Application.Features.Events;
-using Ticketize.Application.Features.Events.Queries;
+using Ticketize.Application.Features.Events.Queries.GetEventDetail;
+using Ticketize.Application.Features.Events.Queries.GetEventsList;
 using Ticketize.Domain.Entities;
 
 namespace Ticketize.Application.Profiles
