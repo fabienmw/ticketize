@@ -18,6 +18,8 @@ namespace Ticketize.Application.Features.Events.Commands.CreateEvent
         {
             var @event = _mapper.Map<Event>(request);
 
+            var validator = new CreateEventCommandValidator();
+            var validationResult = await validator.ValidateAsync(request);
             @event = await _eventRepository.AddAsync(@event);
 
             return @event.EventId;
