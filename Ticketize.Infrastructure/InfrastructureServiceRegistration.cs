@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Ticketize.Application.Contracts.Infrastructure;
 using Ticketize.Application.Models.Mail;
+using Ticketize.Infrastructure.FileExport;
 using Ticketize.Infrastructure.Mail;
 
 namespace Ticketize.Infrastructure
@@ -18,6 +19,7 @@ namespace Ticketize.Infrastructure
         {
             services.Configure<EmailSettings>(configuration.GetSection("EmailSettings"));
 
+            services.AddTransient<ICsvExporter, CsvExporter>();
             services.AddTransient<IEmailService, EmailService>();
 
             return services;
