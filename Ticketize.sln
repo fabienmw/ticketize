@@ -19,9 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticketize.Domain", "Ticketi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticketize.Application", "Ticketize.Application\Ticketize.Application.csproj", "{E852F2C6-CDAF-469D-892E-536E38824976}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticketize.Persistence", "Ticketize.Persistence\Ticketize.Persistence.csproj", "{45F1E70A-6267-44F4-9978-A6046EC7A2E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticketize.Persistence", "Ticketize.Persistence\Ticketize.Persistence.csproj", "{45F1E70A-6267-44F4-9978-A6046EC7A2E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticketize.Infrastructure", "Ticketize.Infrastructure\Ticketize.Infrastructure.csproj", "{7C19CF38-108F-49D7-B3B5-0E179E7EA1B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticketize.Infrastructure", "Ticketize.Infrastructure\Ticketize.Infrastructure.csproj", "{7C19CF38-108F-49D7-B3B5-0E179E7EA1B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticketize.Api", "Ticketize.Api\Ticketize.Api.csproj", "{7A88C7D2-81F4-4C16-99CD-53C1641972A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{7C19CF38-108F-49D7-B3B5-0E179E7EA1B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C19CF38-108F-49D7-B3B5-0E179E7EA1B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C19CF38-108F-49D7-B3B5-0E179E7EA1B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A88C7D2-81F4-4C16-99CD-53C1641972A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A88C7D2-81F4-4C16-99CD-53C1641972A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A88C7D2-81F4-4C16-99CD-53C1641972A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A88C7D2-81F4-4C16-99CD-53C1641972A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +64,7 @@ Global
 		{E852F2C6-CDAF-469D-892E-536E38824976} = {F4C02C60-447A-4955-81DA-7443AD761CEC}
 		{45F1E70A-6267-44F4-9978-A6046EC7A2E1} = {73D246B7-922A-47EF-B8AC-7CE277C5BD00}
 		{7C19CF38-108F-49D7-B3B5-0E179E7EA1B1} = {73D246B7-922A-47EF-B8AC-7CE277C5BD00}
+		{7A88C7D2-81F4-4C16-99CD-53C1641972A9} = {F85FD54D-CCA5-40C7-8BA3-5AFADC69FFA2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D61D652C-877F-4F67-A4D4-2CF585991712}
