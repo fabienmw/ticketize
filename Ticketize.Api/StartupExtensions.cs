@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+using Ticketize.Api.Utility;
 using Ticketize.Application;
 using Ticketize.Infrastructure;
 using Ticketize.Persistence;
@@ -9,6 +11,8 @@ namespace Ticketize.Api
     {
         public static WebApplication ConfigureServices(this WebApplicationBuilder builder)
         {
+            AddSwagger(builder.Services);
+
             builder.Services.AddApplicationServices();
             builder.Services.AddInfrastructureServices(builder.Configuration);
             builder.Services.AddPersistenceServices(builder.Configuration);
@@ -27,6 +31,15 @@ namespace Ticketize.Api
 
         public static WebApplication ConfigurePipeline(this WebApplication app)
         {
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI(s =>
+                {
+                    s.SwaggerEndpoint("/swagger/v1/swagger.json", "Ticketize Api");
+                });
+            }
+
             app.UseHttpsRedirection();
             app.UseRouting();
 
@@ -34,6 +47,20 @@ namespace Ticketize.Api
             app.MapControllers();
 
             return app;
+        }
+
+        private static void AddSwagger(IServiceCollection services)
+        {
+            services.AddSwaggerGen(swagger =>
+            {
+                swagger.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Ticketize Api"
+                });
+
+                swagger.OperationFilter<FileResultContentTypeOperationFilter>();
+            });
         }
 
         /// <summary>
