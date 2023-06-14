@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Ticketize.Api.Utility;
 using Ticketize.Application.Features.Categories.Queries.GetEventsExport;
 using Ticketize.Application.Features.Events.Commands.CreateEvent;
 using Ticketize.Application.Features.Events.Commands.DeleteEvent;
@@ -70,6 +71,7 @@ namespace Ticketize.Api.Controllers
         }
 
         [HttpGet("export", Name = "ExportEvents")]
+        [FileResultContentTypeAttribute("text/csv")]
         public async Task<FileResult> ExportEvents()
         {
             var fileDto = await _mediator.Send(new GetEventsExportQuery());
