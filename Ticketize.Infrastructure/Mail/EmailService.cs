@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System.Net;
@@ -10,9 +11,11 @@ namespace Ticketize.Infrastructure.Mail
     public class EmailService : IEmailService
     {
         private readonly EmailSettings _settings;
-        public EmailService(IOptions<EmailSettings> settings)
+        private readonly ILogger<EmailService> _logger;
+        public EmailService(IOptions<EmailSettings> settings, ILogger<EmailService> logger)
         {
             _settings = settings.Value;
+            _logger = logger;
         }
         public async Task<bool> SendEmail(Email email, CancellationToken cancellationToken = default)
         {
@@ -26,10 +29,9 @@ namespace Ticketize.Infrastructure.Mail
                 Email = _settings.FromAddress,
                 Name = _settings.FromName
             };
-
             var sendGridMessage = MailHelper.CreateSingleEmail(from, to, subject, emailBody, emailBody);
             var response = await client.SendEmailAsync(sendGridMessage, cancellationToken);
-
+            _logger.LogInformation("Email sent");
             return (response.StatusCode == HttpStatusCode.OK || response.StatusCode == HttpStatusCode.Accepted);
         }
     }
