@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Ticketize.Application.Features.Categories.Commands;
 using Ticketize.Application.Features.Categories.Queries.GetCategoriesList;
 using Ticketize.Application.Features.Categories.Queries.GetCategoriesListEventListVm;
 using Ticketize.Application.Features.Events.Commands.CreateEvent;
@@ -23,6 +24,12 @@ namespace Ticketize.Application.Profiles
             CreateMap<Event, CreateEventCommand>().ReverseMap();
             CreateMap<Event, UpdateEventCommand>().ReverseMap();
             CreateMap<Event, DeleteEventCommand>().ReverseMap();
+
+            CreateMap<Category, CategoryDto>();
+            CreateMap<Category, CategoryListVm>();
+            CreateMap<Category, CategoryEventListVm>();
+            CreateMap<Category, CreateCategoryCommand>();
+            CreateMap<Category, CreateCategoryDto>();
         }
     }
 }
