@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticketize.Persistence", "Ti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticketize.Infrastructure", "Ticketize.Infrastructure\Ticketize.Infrastructure.csproj", "{7C19CF38-108F-49D7-B3B5-0E179E7EA1B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticketize.Api", "Ticketize.Api\Ticketize.Api.csproj", "{7A88C7D2-81F4-4C16-99CD-53C1641972A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticketize.Api", "Ticketize.Api\Ticketize.Api.csproj", "{7A88C7D2-81F4-4C16-99CD-53C1641972A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

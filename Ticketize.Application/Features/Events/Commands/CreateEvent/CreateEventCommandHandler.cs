@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.Extensions.Logging;
 using Ticketize.Application.Contracts.Infrastructure;
 using Ticketize.Application.Contracts.Persistence;
 using Ticketize.Application.Exceptions;
@@ -13,11 +14,13 @@ namespace Ticketize.Application.Features.Events.Commands.CreateEvent
         private readonly IEventRepository _eventRepository;
         private readonly IMapper _mapper;
         private readonly IEmailService _emailService;
-        public CreateEventCommandHandler(IEventRepository eventRepository, IMapper mapper, IEmailService emailService)
+        private readonly ILogger<CreateEventCommandHandler> _logger;
+        public CreateEventCommandHandler(IEventRepository eventRepository, IMapper mapper, IEmailService emailService, ILogger<CreateEventCommandHandler> logger)
         {
             _eventRepository = eventRepository;
             _mapper = mapper;
             _emailService = emailService;
+            _logger = logger;
         }
         public async Task<Guid> Handle(CreateEventCommand request, CancellationToken cancellationToken)
         {
@@ -37,9 +40,9 @@ namespace Ticketize.Application.Features.Events.Commands.CreateEvent
             {
                 await _emailService.SendEmail(email);    
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                // log the exception and proceed.
+                _logger.LogError($"Failed to send email for event: [{@event.EventId}], error details: {ex.Message}");
             }
 
             return @event.EventId;
