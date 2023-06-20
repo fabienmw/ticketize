@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Ticketize.Api.Middleware;
 using Ticketize.Api.Utility;
 using Ticketize.Application;
 using Ticketize.Infrastructure;
@@ -41,9 +42,10 @@ namespace Ticketize.Api
             }
 
             app.UseHttpsRedirection();
-            app.UseRouting();
+            
+            app.UseCustomExceptionHandler();
 
-            app.UseCors();
+            app.UseCors("Open");
             app.MapControllers();
 
             return app;
